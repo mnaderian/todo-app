@@ -1,36 +1,69 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Todo App
 
-## Getting Started
+A secure, full-stack todo application built with Next.js, featuring authentication and real-time CRUD operations.
 
-First, run the development server:
+## Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- User authentication with Next-Auth
+- CRUD operations (Create, Read, Update and Delete)
+- Secure server actions with authorization checks
+- Responsive design using Tailwind CSS
+- Server-side rendering (SSR) for optimal performance
+- Type-safe with full TypeScript coverage
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Tech Stack
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **Framework**: Next.js 14 (App Router)
+- **Authentication**: Next-Auth with Credentials Provider
+- **Database**: MySQL with Prisma ORM
+- **Styling**: Tailwind CSS
+- **Validation**: TypeScript
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Security & Architecture Decisions
 
-## Learn More
+### Security Measures
+1. **Explicit Authorization**: Every server action includes explicit checks to verify user ownership of todos
+2. **Database-Level Constraints**: Prisma schema enforces user-todo relationships with CASCADE delete
+3. **No Public API Routes**: All mutations use Server Actions for enhanced security
+4. **Input Validation**: TypeScript interfaces and runtime checks for all data
 
-To learn more about Next.js, take a look at the following resources:
+### Architecture Benefits
+1. **Component-Driven UI**: Modular, reusable components with single responsibilities
+2. **Type Safety**: Full TypeScript coverage with no `any` types
+3. **Performance Optimized**: SSR for initial load, client-side mutations with revalidation
+4. **Responsive Design**: Mobile-first approach with Tailwind CSS
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Setup Instructions
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/mnaderian/todo-app.git
+   cd todo-app
+   npm install
+   ```
 
-## Deploy on Vercel
+2. **Create an `.env` file:**
+   ```env
+   # Database
+   DATABASE_URL="mysql://username:password@localhost:3306/todo_app"
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+   # NextAuth
+   NEXTAUTH_SECRET="your-secret-key-here"
+   NEXTAUTH_URL="http://localhost:3000"
+   ```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+3. **Setup Prisma (Database):**
+   ```bash
+   # Generate Prisma client
+   npx prisma generate
+
+   # Push schema to database
+   npx prisma db push
+   ```
+
+4. **Run the app:**
+   ```bash
+   npm run dev
+   ```
+   
+   Visit http://localhost:3000

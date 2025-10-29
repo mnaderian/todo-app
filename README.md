@@ -75,7 +75,7 @@ A secure, full-stack todo application built with Next.js, featuring authenticati
    DATABASE_URL="mysql://<mysql_username>@localhost:3306/todo_app"
    ```
 
-3. **Setup Prisma (Database):**
+3. **Setup Prisma:**
 
    ```bash
    # Generate Prisma client

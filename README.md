@@ -13,7 +13,7 @@ A secure, full-stack todo application built with Next.js, featuring authenticati
 
 ## Tech Stack
 
-- **Framework**: Next.js 14 (App Router)
+- **Framework**: Next.js (App Router)
 - **Authentication**: Next-Auth with Credentials Provider
 - **Database**: MySQL with Prisma ORM
 - **Styling**: Tailwind CSS
@@ -22,12 +22,14 @@ A secure, full-stack todo application built with Next.js, featuring authenticati
 ## Security & Architecture Decisions
 
 ### Security Measures
+
 1. **Explicit Authorization**: Every server action includes explicit checks to verify user ownership of todos
 2. **Database-Level Constraints**: Prisma schema enforces user-todo relationships with CASCADE delete
 3. **No Public API Routes**: All mutations use Server Actions for enhanced security
 4. **Input Validation**: TypeScript interfaces and runtime checks for all data
 
 ### Architecture Benefits
+
 1. **Component-Driven UI**: Modular, reusable components with single responsibilities
 2. **Type Safety**: Full TypeScript coverage with no `any` types
 3. **Performance Optimized**: SSR for initial load, client-side mutations with revalidation
@@ -36,13 +38,14 @@ A secure, full-stack todo application built with Next.js, featuring authenticati
 ## Setup Instructions
 
 1. **Clone the repository**
+
    ```bash
    git clone https://github.com/mnaderian/todo-app.git
    cd todo-app
    npm install
    ```
-
 2. **Create an `.env` file:**
+
    ```env
    # Database
    DATABASE_URL="mysql://username:password@localhost:3306/todo_app"
@@ -51,8 +54,8 @@ A secure, full-stack todo application built with Next.js, featuring authenticati
    NEXTAUTH_SECRET="your-secret-key-here"
    NEXTAUTH_URL="http://localhost:3000"
    ```
-
 3. **Setup Prisma (Database):**
+
    ```bash
    # Generate Prisma client
    npx prisma generate
@@ -60,10 +63,9 @@ A secure, full-stack todo application built with Next.js, featuring authenticati
    # Push schema to database
    npx prisma db push
    ```
-
 4. **Run the app:**
+
    ```bash
    npm run dev
    ```
-   
    Visit http://localhost:3000

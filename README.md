@@ -59,7 +59,7 @@ A secure, full-stack todo application built with Next.js, featuring authenticati
    quit
    ```
 
-3. **Create an `.env` file:**
+3. **Create a `.env` file:**
 
    ```env
    # Database

@@ -1,4 +1,4 @@
-# Todo App
+# Next.js Todo App
 
 A secure, full-stack todo application built with Next.js, featuring authentication and real-time CRUD operations.
 
@@ -44,16 +44,37 @@ A secure, full-stack todo application built with Next.js, featuring authenticati
    cd todo-app
    npm install
    ```
-2. **Create an `.env` file:**
+
+2. **Setup MySQL DB:**
+   
+   Login and Create a database in MySQL:
+
+   ```bash
+   # login to MySQL
+   mysql -u root -p
+
+   # Create the database
+   CREATE DATABASE todo_app;
+
+   quit
+   ```
+
+3. **Create an `.env` file:**
 
    ```env
    # Database
-   DATABASE_URL="mysql://username:password@localhost:3306/todo_app"
+   DATABASE_URL="mysql://<mysql_username>:<mysql_password>@localhost:3306/todo_app"
 
    # NextAuth
-   NEXTAUTH_SECRET="your-secret-key-here"
+   NEXTAUTH_SECRET="<your-secret-key>"
    NEXTAUTH_URL="http://localhost:3000"
    ```
+
+   If your MySQL doesn't have a password:
+   ```env
+   DATABASE_URL="mysql://<mysql_username>@localhost:3306/todo_app"
+   ```
+
 3. **Setup Prisma (Database):**
 
    ```bash
